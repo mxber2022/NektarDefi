@@ -50,7 +50,7 @@ async function main() {
           "stateMutability": "nonpayable",
           "type": "function"
         },
-        
+
         {
             "inputs": [
               {
@@ -95,8 +95,9 @@ async function main() {
     /*
         3. Borrow token on aave
     */
-      
     const txborrow = await PoolContract.connect(connectedWallet).supply("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", 1, "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199", 0);
+    const receiptBorrow = await tx.wait()
+    console.log("receipt:", receiptBorrow);
 }
 
 main().catch((error) => {
